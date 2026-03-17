@@ -18,7 +18,7 @@ function fakeToken(username: string) {
 export const useUserStore = defineStore('user', {
   state: () => ({
     token: storage.get<string>(TOKEN_KEY) ?? '',
-    profile: storage.get<UserProfile>(PROFILE_KEY),
+    profile: (storage.get<UserProfile>(PROFILE_KEY) ?? null) as UserProfile | null,
     isLoaded: false
   }),
   getters: {
@@ -59,7 +59,7 @@ export const useUserStore = defineStore('user', {
     },
     reset() {
       this.token = ''
-      this.profile = undefined
+      this.profile = null
       this.isLoaded = false
       storage.remove(TOKEN_KEY)
       storage.remove(PROFILE_KEY)

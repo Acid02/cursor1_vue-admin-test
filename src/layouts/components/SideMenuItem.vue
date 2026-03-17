@@ -32,7 +32,8 @@ function resolvePath(r: AppRouteRecordRaw) {
 }
 
 function normalizeChild(c: AppRouteRecordRaw): AppRouteRecordRaw {
-  return { ...c, path: c.path, meta: c.meta, children: c.children }
+  // 路由记录在运行时会被 router 扩展，这里仅保留菜单需要的字段
+  return c as AppRouteRecordRaw
 }
 
 const resolvedSelfPath = computed(() => resolvePath(props.item))

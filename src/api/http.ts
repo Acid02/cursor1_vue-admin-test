@@ -33,9 +33,9 @@ http.interceptors.response.use(
         ElMessage.error(msg)
         return Promise.reject(new Error(msg))
       }
-      return wrapped.data
+      return wrapped.data as any
     }
-    return data
+    return data as any
   },
   (error: AxiosError<any>) => {
     const status = error.response?.status
