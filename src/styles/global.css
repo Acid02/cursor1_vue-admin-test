@@ -18,3 +18,29 @@ body {
   width: 100%;
 }
 
+@media print {
+  :root {
+    --app-bg: #fff;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  /* 打印时隐藏布局侧边栏和顶部导航，只保留内容区 */
+  .sidebar,
+  .header {
+    display: none !important;
+  }
+
+  .content {
+    padding: 0 !important;
+  }
+
+  /* 让卡片更像报表 */
+  .el-card {
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  }
+}
+

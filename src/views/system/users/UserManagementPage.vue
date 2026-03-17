@@ -179,7 +179,6 @@ async function onDelete(row: UserRow) {
   try {
     await deleteUser(row.id)
     ElMessage.success('删除成功')
-    // 删除后可能出现当前页为空，做一次回退
     if (table.list.length === 1 && query.page > 1) query.page -= 1
     await reload()
   } catch (e: any) {
