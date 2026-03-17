@@ -1,0 +1,20 @@
+:root {
+  --app-bg: #f5f7fa;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--app-bg);
+  color: #1f2329;
+}
+
+.w-full {
+  width: 100%;
+}
+
